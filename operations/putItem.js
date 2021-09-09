@@ -4,11 +4,12 @@ let dynamodb = new AWS.DynamoDB.DocumentClient({ region: 'us-east-1'})
 let params = {
     TableName: 'ServerlessSeries',
     Item: {
-        pk: "marco.mercado@mail.com",
+        pk: "marco.mercado@gmail.com",
         sk: "user",
         first_name: "Marco",
         last_name: "Mercado"
     },
+    ConditionExpression: "attribute_not_exists(pk)",
     ReturnConsumedCapacity: 'TOTAL'
 }
 
